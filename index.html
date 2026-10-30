@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SUETAM FILMS | Mateus Duarte, videomaker, editor e fotógrafo</title>
+<meta name="description" content="Portfólio audiovisual de Mateus Duarte, videomaker, editor de vídeos e fotógrafo em Recife, Pernambuco.">
+<meta name="theme-color" content="#000000">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SUETAM FILMS | Mateus Duarte">
+<meta property="og:description" content="Portfólio audiovisual: vídeos publicitários, esportes, eventos, redes sociais e fotografia.">
+<meta property="og:url" content="https://suetamfilms.github.io/">
+<meta property="og:image" content="https://suetamfilms.github.io/assets/compartilhamento.jpg">
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=League+Gothic&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="pular" href="#trabalhos">Pular para os trabalhos</a>
+
+<header class="topo" id="topo">
+  <a class="topo-logo" href="#inicio" aria-label="SUETAM FILMS, voltar ao início"><img src="assets/logo-suetam.png" alt="" width="64" height="64"></a>
+  <button class="menu-botao" type="button" aria-expanded="false" aria-controls="menu"><span class="menu-rotulo">Menu</span></button>
+  <nav class="menu" id="menu" aria-label="Principal">
+    <a href="#apresentacao">Apresentação</a>
+    <a href="#trabalhos">Trabalhos</a>
+    <a href="#experiencia">Experiência</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#equipamentos">Equipamentos</a>
+    <a href="#contato">Contato</a>
+  </nav>
+</header>
+
+<main>
+  <section class="abertura" id="inicio">
+    <div class="parede" id="parede" aria-hidden="true"></div>
+    <div class="veu"></div>
+    <div class="abertura-texto">
+      <h1>SUETAM FILMS</h1>
+      <div class="abertura-base">
+        <p class="quem"><strong>MATEUS DUARTE</strong><br>VIDEOMAKER | EDITOR | FOTÓGRAFO<br><span id="frase">Transformo ideias em imagens que ficam.</span></p>
+        <div class="botoes">
+          <a class="botao cheio" href="#trabalhos">CONHEÇA MEU TRABALHO</a>
+          <a class="botao" href="#contato">ENTRE EM CONTATO</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao apresentacao" id="apresentacao" aria-labelledby="t-apresentacao">
+    <div class="apresentacao-foto" id="apresentacao-foto"></div>
+    <div class="apresentacao-texto">
+      <h2 id="t-apresentacao">APRESENTAÇÃO</h2>
+      <div id="apresentacao-texto"></div>
+      <div class="botoes esquerda">
+        <a class="botao" href="assets/CURRICULO_SUETAM_FILMS.pdf" target="_blank" rel="noopener">VER CURRÍCULO</a>
+        <a class="botao" href="assets/CURRICULO_SUETAM_FILMS.pdf" download="CURRICULO_SUETAM_FILMS.pdf">BAIXAR CURRÍCULO EM PDF</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="secao" id="trabalhos" aria-labelledby="t-trabalhos">
+    <div class="trabalhos-topo">
+      <h2 id="t-trabalhos">MEUS TRABALHOS</h2>
+      <div class="filtros" id="filtros" role="group" aria-label="Filtrar por categoria"></div>
+    </div>
+    <div class="galeria" id="galeria"></div>
+    <noscript><p>Para assistir aos vídeos, ative o JavaScript do navegador.</p></noscript>
+  </section>
+
+  <section class="secao" id="experiencia" aria-labelledby="t-experiencia">
+    <h2 id="t-experiencia">EXPERIÊNCIA</h2>
+    <div class="experiencia" id="lista-experiencia"></div>
+  </section>
+
+  <section class="secao" id="servicos" aria-labelledby="t-servicos">
+    <h2 id="t-servicos">SERVIÇOS</h2>
+    <ul class="servicos" id="lista-servicos"></ul>
+  </section>
+
+  <section class="secao" id="equipamentos" aria-labelledby="t-equipamentos">
+    <h2 id="t-equipamentos">EQUIPAMENTOS E SOFTWARES</h2>
+    <div class="ferramentas" id="lista-ferramentas"></div>
+  </section>
+
+  <section class="secao contato" id="contato" aria-labelledby="t-contato">
+    <h2 id="t-contato">VAMOS CONVERSAR</h2>
+    <p class="contato-local" id="contato-local"></p>
+    <div class="contato-acao" id="contato-acao"></div>
+    <ul class="contatos" id="lista-contatos"></ul>
+  </section>
+</main>
+
+<footer class="rodape">
+  <p>© <span id="ano"></span> SUETAM FILMS. Mateus Duarte.</p>
+  <p>Algumas peças são publicidade de apostas de terceiros, destinadas a maiores de 18 anos. Jogue com responsabilidade.</p>
+</footer>
+
+<dialog class="sala" id="sala" aria-labelledby="sala-titulo">
+  <button class="sala-fechar" type="button" id="sala-fechar">Fechar</button>
+  <button class="sala-seta anterior" type="button" id="sala-anterior" aria-label="Trabalho anterior"><span aria-hidden="true">‹</span></button>
+  <div class="sala-corpo" id="sala-corpo">
+    <div class="sala-tela" id="sala-tela"></div>
+    <div class="sala-info">
+      <p class="sala-categoria" id="sala-categoria"></p>
+      <h3 id="sala-titulo"></h3>
+      <p id="sala-descricao"></p>
+      <dl class="sala-ficha" id="sala-ficha"></dl>
+      <p class="sala-aviso" id="sala-aviso" hidden>Conteúdo publicitário para maiores de 18 anos.</p>
+    </div>
+  </div>
+  <button class="sala-seta proxima" type="button" id="sala-proxima" aria-label="Próximo trabalho"><span aria-hidden="true">›</span></button>
+</dialog>
+
+<script src="conteudo.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
