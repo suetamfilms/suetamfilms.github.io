@@ -305,7 +305,7 @@ window.SUETAM = {
   ],
 
   /* ---------- Equipamentos e softwares ---------- */
-  softwares: ["Adobe Premiere Pro", "Adobe Lightroom Classic"],
+  softwares: ["Adobe Premiere Pro", "Adobe After Effects", "Adobe Photoshop", "Adobe Lightroom Classic", "CapCut"],
   habilidades: [
     "Captação com câmeras profissionais",
     "Fotografia",
