@@ -15,7 +15,7 @@ window.SUETAM = {
   frase: "Transformo ideias em imagens que ficam.",
 
   /* Resumo profissional do currículo */
-  resumo: "Videomaker, editor de vídeos e fotógrafo em Recife, Pernambuco, à frente da marca SUETAM FILMS, e diretor de marketing do Real Guararapes. Experiência em captação, edição e pós-produção, vídeos publicitários, conteúdo para redes sociais, cobertura de eventos e conteúdo esportivo, com produção em formatos vertical e horizontal.",
+  resumo: "Videomaker, editor de vídeos e fotógrafo em Recife, Pernambuco, à frente da marca SUETAM FILMS, e diretor de marketing do projeto social Real Guararapes. Experiência em captação, edição e pós-produção, vídeos publicitários, conteúdo para redes sociais, cobertura de eventos e conteúdo esportivo, com produção em formatos vertical e horizontal.",
 
   /* Endereço público do site, com https://. Com ele preenchido, o currículo ganha o link e o QR Code. */
   site: "https://suetamfilms.github.io/",
@@ -35,8 +35,8 @@ window.SUETAM = {
     foto: "assets/retrato.jpg",       // vazio: a logo ocupa o espaço da foto
     texto: [
       "Sou Mateus Duarte, videomaker, editor de vídeos e fotógrafo em Recife, Pernambuco. Com a SUETAM FILMS, transformo ideias em imagens para empresas, agências, eventos e clientes particulares.",
-      "Fui videomaker da BETesporte de fevereiro de 2024 a outubro de 2026, com experiência em captação, edição e pós-produção, vídeos publicitários, conteúdo para redes sociais, cobertura de eventos e conteúdo esportivo.",
-      "Hoje sou diretor de marketing do Real Guararapes e também realizo produções independentes, trabalhos freelancers de fotografia e vídeo, além de projetos esportivos e institucionais."
+      "Produzo vídeos publicitários, conteúdo para redes sociais, coberturas de eventos e conteúdo esportivo, da captação à edição.",
+      "Também realizo produções independentes, trabalhos de fotografia e vídeo e projetos esportivos, sociais e institucionais."
     ]
   },
 
@@ -180,7 +180,7 @@ window.SUETAM = {
       funcao: "Fotografia", cliente: ""
     },
     {
-      id: "neymar-selecao", titulo: "Neymar jogaria em qualquer seleção", categoria: "Esportes e futebol",
+      id: "neymar-selecao", titulo: "Bate-bola entre Zico e Pilhado", categoria: "Esportes e futebol",
       descricao: "Conversa sobre futebol gravada em estúdio, com legendas e grafismos.",
       tipo: "local", origem: "neymar-selecao.mp4", previa: "neymar-selecao.mp4",
       miniatura: "thumbnails/neymar-selecao.jpg", formato: "vertical", duracao: "1:04",
@@ -268,12 +268,13 @@ window.SUETAM = {
   experiencia: [
     {
       titulo: "Real Guararapes", funcao: "Diretor de marketing",
-      periodo: "Atual",
+      tipo: "Projeto social",   // opcional: aparece ao lado da função
+      periodo: "Atual",   // aparece só no currículo, por exemplo "Fev 2024 – Out 2026"
       atividades: []
     },
     {
       titulo: "BETesporte", funcao: "Videomaker",
-      periodo: "Fevereiro de 2024 a outubro de 2026",
+      periodo: "Fev 2024 – Out 2026",
       atividades: [
         "Captação de vídeos",
         "Edição e pós-produção audiovisual",

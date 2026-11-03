@@ -97,7 +97,9 @@ h2 { font: 400 clamp(52px, 8vw, 112px)/.92 var(--titulo); letter-spacing: .005em
 /* Experiência */
 .experiencia { margin-top: clamp(28px, 4vw, 56px); display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(32px, 6vw, 96px); border-top: 1px solid var(--linha); padding-top: 28px; }
 .exp-item h3, .exp-outros h3 { font: 400 clamp(36px, 4.2vw, 60px)/1 var(--titulo); }
-.exp-item .funcao { color: var(--cinza); margin: 6px 0 20px; }
+.exp-item .funcao { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; margin: 8px 0 20px; }
+.exp-item .cargo { font-size: 14px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+.exp-item .tipo { font-size: 15px; color: var(--cinza); }
 .lista-marcada { display: grid; gap: 8px; color: #dededc; }
 .exp-outros h3 { margin-bottom: 20px; }
 .exp-item + .exp-item { margin-top: 36px; }

@@ -240,13 +240,14 @@
   const listaExp = $('#lista-experiencia');
   const colunaExp = criar('div', { className: 'revelar' });
   D.experiencia.forEach(e => {
-    const funcao = [e.funcao, e.periodo].filter(Boolean).join(' · ');
+    // O período aparece só no currículo: no site, a experiência mostra a empresa e a função.
+    const funcao = criar('p', { className: 'funcao' }, criar('span', { className: 'cargo', textContent: e.funcao }));
+    if (e.tipo) funcao.append(criar('span', { className: 'tipo', textContent: e.tipo }));
     const item = criar('article', { className: 'exp-item' },
       criar('h3', { textContent: e.titulo }),
-      criar('p', { className: 'funcao', textContent: funcao }),
+      funcao,
       criar('ul', { className: 'lista-marcada' }, ...e.atividades.map(a => criar('li', { textContent: a }))));
     if (!e.atividades.length) item.querySelector('ul').remove();
-    if (!e.periodo && local) item.querySelector('.funcao').append(criar('span', { className: 'pendente', textContent: ' · período a preencher' }));
     colunaExp.append(item);
   });
   listaExp.append(colunaExp, criar('div', { className: 'exp-outros revelar' },
