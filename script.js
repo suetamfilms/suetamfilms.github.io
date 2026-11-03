@@ -69,14 +69,15 @@
   D.projetos.forEach(p => {
     const miniatura = criar('span', { className: 'miniatura' },
       criar('img', { src: p.miniatura, alt: '', loading: 'lazy', decoding: 'async' }));
-    if (p.duracao) miniatura.append(criar('span', { className: 'cartao-play', textContent: `▶ ${p.duracao}` }));
+    const selo = p.tipo === 'album' ? `${p.fotos} fotos` : p.duracao && `▶ ${p.duracao}`;
+    if (selo) miniatura.append(criar('span', { className: 'cartao-play', textContent: selo }));
     const classes = ['cartao', 'revelar'];
     if (p.formato === 'horizontal') classes.push('largo');
     if (p.tipo === 'foto') classes.push('foto-larga');
     const cartao = criar('button', {
       type: 'button',
       className: classes.join(' '),
-      ariaLabel: `${p.tipo === 'foto' ? 'Ver' : 'Assistir'}: ${p.titulo}`
+      ariaLabel: `${p.tipo === 'album' ? 'Ver álbum' : p.tipo === 'foto' ? 'Ver' : 'Assistir'}: ${p.titulo}`
     }, miniatura, criar('span', { className: 'cartao-dados' },
       criar('strong', { textContent: p.titulo }),
       criar('span', { className: 'cat', textContent: p.categoria }),
@@ -126,6 +127,7 @@
   const tela = $('#sala-tela');
   const corpo = $('#sala-corpo');
   let atual = null;
+  let trocarFoto = null; // definida quando o trabalho aberto é um álbum
 
   function linkIncorporado(p) {
     if (p.tipo === 'youtube') {
@@ -139,7 +141,45 @@
     return null;
   }
 
+  // Álbum: fotos numeradas 01.jpg, 02.jpg... na pasta, com versões pequenas em mini/.
+  function montarAlbum(p) {
+    const n = Number(p.fotos);
+    const arquivo = (i, mini) => `${p.pasta}/${mini ? 'mini/' : ''}${String(i + 1).padStart(2, '0')}.jpg`;
+    const foto = criar('img', { alt: '' });
+    const contador = criar('span', { className: 'album-contador' });
+    const minis = criar('div', { className: 'album-mini' });
+    let i = 0;
+    const ir = novo => {
+      i = (novo + n) % n;
+      foto.src = arquivo(i);
+      foto.alt = `${p.titulo}, foto ${i + 1} de ${n}`;
+      contador.textContent = `${i + 1} / ${n}`;
+      minis.querySelectorAll('button').forEach((b, j) => b.setAttribute('aria-current', String(j === i)));
+      const ativo = minis.children[i];
+      if (ativo) ativo.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    };
+    for (let j = 0; j < n; j++) {
+      const b = criar('button', { type: 'button', ariaLabel: `Foto ${j + 1}` },
+        criar('img', { src: arquivo(j, true), alt: '', loading: 'lazy' }));
+      b.addEventListener('click', () => ir(j));
+      minis.append(b);
+    }
+    const seta = (passo, rotulo, texto) => {
+      const b = criar('button', { type: 'button', className: `album-seta ${passo < 0 ? 'anterior' : 'proxima'}`, ariaLabel: rotulo, textContent: texto });
+      b.addEventListener('click', () => ir(i + passo));
+      return b;
+    };
+    trocarFoto = passo => ir(i + passo);
+    const caixa = criar('div', { className: 'album' },
+      criar('div', { className: 'album-foto' }, foto, seta(-1, 'Foto anterior', '‹'), seta(1, 'Próxima foto', '›'), contador),
+      minis);
+    ir(0);
+    return caixa;
+  }
+
   function montarMidia(p) {
+    trocarFoto = null;
+    if (p.tipo === 'album') return montarAlbum(p);
     if (p.tipo === 'foto') return criar('img', { src: p.origem, alt: p.titulo });
     if (p.tipo === 'local') {
       return criar('video', { src: `videos/${p.origem}`, poster: p.miniatura, controls: true, autoplay: true, playsInline: true, preload: 'metadata' });
@@ -154,15 +194,16 @@
   function mostrar(p) {
     atual = p;
     tela.replaceChildren(montarMidia(p));
-    const horizontal = p.formato === 'horizontal';
-    tela.className = `sala-tela ${p.tipo === 'foto' ? 'foto' : horizontal ? 'horizontal' : 'vertical'}`;
+    const album = p.tipo === 'album';
+    const horizontal = p.formato === 'horizontal' || album;
+    tela.className = `sala-tela ${album ? 'album' : p.tipo === 'foto' ? 'foto' : horizontal ? 'horizontal' : 'vertical'}`;
     corpo.classList.toggle('h', horizontal);
     $('#sala-categoria').textContent = p.categoria;
     $('#sala-titulo').textContent = p.titulo;
     $('#sala-descricao').textContent = p.descricao;
     const ficha = $('#sala-ficha');
     ficha.replaceChildren();
-    [['Função', p.funcao], ['Cliente', p.cliente], ['Duração', p.duracao]].forEach(([rotulo, valor]) => {
+    [['Função', p.funcao], ['Cliente', p.cliente], ['Duração', p.duracao], ['Fotos', album && String(p.fotos)]].forEach(([rotulo, valor]) => {
       if (valor) ficha.append(criar('dt', { textContent: rotulo }), criar('dd', { textContent: valor }));
     });
     $('#sala-aviso').hidden = !p.maiores18;
@@ -184,12 +225,15 @@
   $('#sala-anterior').addEventListener('click', () => vizinho(-1));
   $('#sala-proxima').addEventListener('click', () => vizinho(1));
   sala.addEventListener('close', () => {
+    if (sala.open) return; // reaberto antes deste aviso chegar: não apaga o trabalho novo
     tela.replaceChildren(); // interrompe o vídeo e o download
     document.documentElement.style.overflow = '';
   });
+  // Num álbum, as setas do teclado passam as fotos; nos vídeos, passam os trabalhos.
   sala.addEventListener('keydown', e => {
-    if (e.key === 'ArrowLeft') vizinho(-1);
-    if (e.key === 'ArrowRight') vizinho(1);
+    const passo = e.key === 'ArrowLeft' ? -1 : e.key === 'ArrowRight' ? 1 : 0;
+    if (!passo) return;
+    if (trocarFoto) trocarFoto(passo); else vizinho(passo);
   });
 
   /* ---------- Experiência ---------- */

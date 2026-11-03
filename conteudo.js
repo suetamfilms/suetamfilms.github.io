@@ -46,14 +46,20 @@ window.SUETAM = {
     "Publicidade e marketing",
     "Esportes e futebol",
     "Eventos",
+    "Aniversários e chás",   // aniversários, chá revelação, chá de fraldas e similares
+    "Shows",
+    "Ensaios e casamentos",
+    "Documentários",
     "Conteúdo para redes sociais",
     "Projetos institucionais",
+    "Campanhas políticas",
     "Fotografia"
   ],
 
   /* ---------- Trabalhos ----------
      A ordem aqui é a ordem da galeria.
-     tipo:     "local" (arquivo em videos/), "youtube", "vimeo" ou "foto"
+     tipo:     "local" (arquivo em videos/), "youtube", "vimeo", "foto" ou "album"
+     album:    pasta com as fotos 01.jpg, 02.jpg... e as versões pequenas em mini/; fotos: quantidade
      origem:   local: nome do arquivo | youtube/vimeo: link do vídeo | foto: caminho da imagem
      previa:   vídeo curto e sem som que toca ao passar o mouse (opcional)
      formato:  "vertical" ou "horizontal"
@@ -76,6 +82,27 @@ window.SUETAM = {
       funcao: "Captação e edição", cliente: "", destaque: true
     },
     {
+      id: "cha-revelacao-agata-sophia", titulo: "Chá revelação: Ágata Sophia", categoria: "Aniversários e chás",
+      descricao: "Filme horizontal do chá revelação, da decoração ao momento da revelação.",
+      tipo: "local", origem: "cha-revelacao-agata-sophia.mp4", previa: "cha-revelacao-agata-sophia.mp4",
+      miniatura: "thumbnails/cha-revelacao-agata-sophia.jpg", formato: "horizontal", duracao: "2:33",
+      funcao: "Captação e edição", cliente: ""
+    },
+    {
+      id: "aniversario-sara-liz", titulo: "Aniversário de 1 ano: Sara Liz", categoria: "Aniversários e chás",
+      descricao: "Cobertura fotográfica do primeiro aniversário, com decoração, família e os momentos da aniversariante.",
+      tipo: "album", pasta: "assets/albuns/aniversario-sara-liz", fotos: 12,
+      miniatura: "thumbnails/aniversario-sara-liz.jpg", formato: "vertical",
+      funcao: "Fotografia", cliente: ""
+    },
+    {
+      id: "cha-revelacao-agata-sophia-fotos", titulo: "Chá revelação: Ágata Sophia (fotos)", categoria: "Aniversários e chás",
+      descricao: "Fotos do chá revelação, com a decoração, o casal, a família e a revelação.",
+      tipo: "album", pasta: "assets/albuns/cha-revelacao-agata-sophia-fotos", fotos: 12,
+      miniatura: "thumbnails/cha-revelacao-agata-sophia-fotos.jpg", formato: "vertical",
+      funcao: "Fotografia", cliente: ""
+    },
+    {
       id: "real-guararapes-treino", titulo: "Real Guararapes: Treino", categoria: "Esportes e futebol",
       descricao: "Vídeo vertical de um treino do Real Guararapes, com depoimentos dos atletas.",
       tipo: "local", origem: "real-guararapes-treino.mp4", previa: "real-guararapes-treino.mp4",
@@ -90,6 +117,27 @@ window.SUETAM = {
       funcao: "Captação e edição", cliente: "Real Guararapes"
     },
     {
+      id: "mini-documentario-filipe", titulo: "Mini documentário: Filipe", categoria: "Documentários",
+      descricao: "Mini documentário vertical com depoimentos de familiares e amigos sobre a história de Filipe.",
+      tipo: "local", origem: "mini-documentario-filipe.mp4", previa: "mini-documentario-filipe.mp4",
+      miniatura: "thumbnails/mini-documentario-filipe.jpg", formato: "vertical", duracao: "1:49",
+      funcao: "Captação e edição", cliente: ""
+    },
+    {
+      id: "show-filipe-ret", titulo: "Show: Filipe Ret", categoria: "Shows",
+      descricao: "Fotos de palco do show de Filipe Ret.",
+      tipo: "album", pasta: "assets/albuns/show-filipe-ret", fotos: 12,
+      miniatura: "thumbnails/show-filipe-ret.jpg", formato: "vertical",
+      funcao: "Fotografia", cliente: ""
+    },
+    {
+      id: "pre-wedding-marcio-e-iara", titulo: "Pré-wedding: Marcio e Iara", categoria: "Ensaios e casamentos",
+      descricao: "Ensaio do casal na praia, com a luz dourada do sol baixo.",
+      tipo: "album", pasta: "assets/albuns/pre-wedding-marcio-e-iara", fotos: 12,
+      miniatura: "thumbnails/pre-wedding-marcio-e-iara.jpg", formato: "vertical",
+      funcao: "Fotografia", cliente: ""
+    },
+    {
       id: "macae-champions", titulo: "Macaé: Champions", categoria: "Publicidade e marketing",
       descricao: "Peça publicitária vertical com apresentador e grafismos sobre a Champions.",
       tipo: "local", origem: "macae-champions.mp4", previa: "macae-champions.mp4",
@@ -102,6 +150,34 @@ window.SUETAM = {
       tipo: "local", origem: "sofia-cs.mp4", previa: "sofia-cs.mp4",
       miniatura: "thumbnails/sofia-cs.jpg", formato: "vertical", duracao: "0:53",
       funcao: "Captação e edição", cliente: "BETesporte", destaque: true, maiores18: true
+    },
+    {
+      id: "torneio-geracao-4", titulo: "Torneio Geração 4", categoria: "Esportes e futebol",
+      descricao: "Vídeo vertical do torneio de futebol de areia da Geração 4.",
+      tipo: "local", origem: "torneio-geracao-4.mp4", previa: "torneio-geracao-4.mp4",
+      miniatura: "thumbnails/torneio-geracao-4.jpg", formato: "vertical", duracao: "1:00",
+      funcao: "Captação e edição", cliente: ""
+    },
+    {
+      id: "torneio-geracao-4-fotos", titulo: "Torneio Geração 4 (fotos)", categoria: "Esportes e futebol",
+      descricao: "Fotos do torneio de futebol de areia, com jogos, equipes e premiação.",
+      tipo: "album", pasta: "assets/albuns/torneio-geracao-4-fotos", fotos: 12,
+      miniatura: "thumbnails/torneio-geracao-4-fotos.jpg", formato: "vertical",
+      funcao: "Fotografia", cliente: ""
+    },
+    {
+      id: "bloco-badlove", titulo: "Bloco Badlove", categoria: "Eventos",
+      descricao: "Cobertura fotográfica do bloco de carnaval Badlove, com palco, atrações e público.",
+      tipo: "album", pasta: "assets/albuns/bloco-badlove", fotos: 12,
+      miniatura: "thumbnails/bloco-badlove.jpg", formato: "vertical",
+      funcao: "Fotografia", cliente: ""
+    },
+    {
+      id: "campanha-junior-comprido", titulo: "Campanha: Junior Comprido", categoria: "Campanhas políticas",
+      descricao: "Cobertura fotográfica de caminhada e carreata da campanha de Junior Comprido a vereador.",
+      tipo: "album", pasta: "assets/albuns/campanha-junior-comprido", fotos: 12,
+      miniatura: "thumbnails/campanha-junior-comprido.jpg", formato: "vertical",
+      funcao: "Fotografia", cliente: ""
     },
     {
       id: "neymar-selecao", titulo: "Neymar jogaria em qualquer seleção", categoria: "Esportes e futebol",
@@ -137,6 +213,27 @@ window.SUETAM = {
       tipo: "local", origem: "fa-iguinho-e-lulinha.mp4", previa: "fa-iguinho-e-lulinha.mp4",
       miniatura: "thumbnails/fa-iguinho-e-lulinha.jpg", formato: "vertical", duracao: "2:34",
       funcao: "Captação e edição", cliente: "BETesporte", maiores18: true
+    },
+    {
+      id: "geracao-4-camela", titulo: "Geração 4: Camela", categoria: "Projetos institucionais",
+      descricao: "Fotos de alunos e professores em evento esportivo da Geração 4 em Camela, Ipojuca.",
+      tipo: "album", pasta: "assets/albuns/geracao-4-camela", fotos: 12,
+      miniatura: "thumbnails/geracao-4-camela.jpg", formato: "vertical",
+      funcao: "Fotografia", cliente: ""
+    },
+    {
+      id: "geracao-4-camela-video", titulo: "Geração 4: Camela (vídeo)", categoria: "Projetos institucionais",
+      descricao: "Vídeo curto dos alunos de mãos dadas em roda no campo.",
+      tipo: "local", origem: "geracao-4-camela-video.mp4", previa: "geracao-4-camela-video.mp4",
+      miniatura: "thumbnails/geracao-4-camela-video.jpg", formato: "vertical", duracao: "0:09",
+      funcao: "Captação e edição", cliente: ""
+    },
+    {
+      id: "pre-festa-barchef", titulo: "Pré-festa Barchef", categoria: "Publicidade e marketing",
+      descricao: "Vídeo vertical de pré-festa na praia, com drinks e público.",
+      tipo: "local", origem: "pre-festa-barchef.mp4", previa: "pre-festa-barchef.mp4",
+      miniatura: "thumbnails/pre-festa-barchef.jpg", formato: "vertical", duracao: "0:37",
+      funcao: "Captação e edição", cliente: "", maiores18: true
     },
     {
       id: "meme-tiru", titulo: "Meme Tiru", categoria: "Conteúdo para redes sociais",
@@ -199,6 +296,7 @@ window.SUETAM = {
     "Produção de vídeos publicitários",
     "Vídeos para empresas",
     "Cobertura de eventos",
+    "Aniversários, chá revelação e chá de fraldas",
     "Produção de conteúdo para redes sociais",
     "Vídeos esportivos",
     "Fotografia profissional",
